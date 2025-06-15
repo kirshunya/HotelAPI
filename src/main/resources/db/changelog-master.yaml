@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: dev
+      changes:
+        - createTable:
+            tableName: hotel
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: description
+                  type: text
+              - column:
+                  name: brand
+                  type: varchar(100)
+              - column:
+                  name: phone
+                  type: varchar(50)
+              - column:
+                  name: address
+                  type: varchar(500)
