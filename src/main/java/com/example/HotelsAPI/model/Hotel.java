@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Table(name = "hotels")
 @Entity
 @Data
 @Builder
@@ -35,10 +36,14 @@ public class Hotel {
     private List<String> amenities;
 
     public boolean addToAmenities(List<String> amenitiesToAdd){
-        if(amenities.containsAll(amenitiesToAdd)){
-            return false;
+        boolean added = false;
+        for (String amenity : amenitiesToAdd) {
+            if (!amenities.contains(amenity)) {
+                amenities.add(amenity);
+                added = true;
+            }
         }
-        amenities.addAll(amenitiesToAdd);
-        return true;
+        return added;
     }
+
 }
