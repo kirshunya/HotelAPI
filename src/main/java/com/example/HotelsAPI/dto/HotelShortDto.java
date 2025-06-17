@@ -3,7 +3,8 @@ package com.example.HotelsAPI.dto;
 import lombok.Data;
 
 @Data
-public class HotelShortDTO {
+public class HotelShortDto {
+    private Long id;
     private String name;
     private String description;
     private String address;

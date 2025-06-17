@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Embeddable
 
 public class Address {
-    private String houseNumber;
+    private int houseNumber;
     private String street;
     private String city;
     private String country;

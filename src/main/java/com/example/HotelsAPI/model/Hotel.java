@@ -20,12 +20,25 @@ public class Hotel {
     private Long id;
     private String name;
     private String description;
+    private String brand;
+
     @Embedded
     private Address address;
     @Embedded
-    private Contacts contact;
+    private Contacts contacts;
     @Embedded
     private ArrivalTime arrivalTime;
+
     @ElementCollection
+    @CollectionTable(name = "hotel_amenities", joinColumns = @JoinColumn(name = "hotel_id"))
+    @Column(name = "amenity")
     private List<String> amenities;
+
+    public boolean addToAmenities(List<String> amenitiesToAdd){
+        if(amenities.containsAll(amenitiesToAdd)){
+            return false;
+        }
+        amenities.addAll(amenitiesToAdd);
+        return true;
+    }
 }
